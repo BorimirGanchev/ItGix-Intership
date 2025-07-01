@@ -1,0 +1,21 @@
+===== System Monitoring Report: Tue Jul  1 02:01:19 PM EEST 2025 =====
+
+[CPU Load]
+ 14:01:19 up 19:39,  1 user,  load average: 0.41, 0.57, 0.71
+
+[Memory Usage]
+               total        used        free      shared  buff/cache   available
+Mem:            31Gi        11Gi        10Gi       1.6Gi        11Gi        20Gi
+Swap:          8.0Gi          0B       8.0Gi
+
+[Disk Usage]
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           3.2G  2.7M  3.2G   1% /run
+/dev/nvme0n1p6   92G   52G   36G  60% /
+tmpfs            16G   70M   16G   1% /dev/shm
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+efivarfs        154K   84K   66K  57% /sys/firmware/efi/efivars
+tmpfs            16G     0   16G   0% /run/qemu
+/dev/nvme0n1p7  240G   45G  183G  20% /home
+/dev/nvme0n1p1   96M   32M   65M  33% /boot/efi
+tmpfs           3.2G  2.6M  3.2G   1% /run/user/1000
