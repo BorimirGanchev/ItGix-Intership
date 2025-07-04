@@ -1,0 +1,5 @@
+# Docker/WP-specific ignores
+/data/
+/wp-content/
+*.sql
+.env

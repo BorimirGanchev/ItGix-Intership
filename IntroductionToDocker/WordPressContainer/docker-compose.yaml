@@ -1,0 +1,43 @@
+version: '3.8'  
+
+services:
+  db:
+    image: mysql:8.0  
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw 
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress-password  
+    volumes:
+      - mysql_data:/var/lib/mysql  
+    restart: unless-stopped  
+    networks:
+      - wp-network
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress-password
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG', false);  # Disable debug mode in production
+    volumes:
+      - wp_content:/var/www/html/wp-content  
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini 
+    restart: unless-stopped
+    networks:
+      - wp-network
+
+volumes:
+  mysql_data: 
+  wp_content:  
+
+networks:
+  wp-network:  
+    driver: bridge
